@@ -1,9 +1,5 @@
 <template>
-  <v-card
-    :loading="UserState(user.state)"
-    height="250"
-    :color="cardColor"
-  >
+  <v-card :loading="UserState(user.state)" height="250" :color="cardColor">
     <template v-slot:progress>
       <v-progress-linear
         background-color="warning"
@@ -37,7 +33,7 @@ export default {
       return this.show && this.user.userState === 2;
     },
     cardColor() {
-      if (this.flip()) return "success lighten-3";
+      if (this.flip) return "success lighten-3";
       if (this.user.userState === 1) return "disabled";
       else return "primary";
     }
